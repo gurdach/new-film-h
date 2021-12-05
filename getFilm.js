@@ -142,6 +142,7 @@ app.get("/embed/:id", function (req, res) {
 });
 
 app.use("/new/", proxy("v1638648650.bazon.site"));
+app.use("/player/", proxy("t6hu.bazonserver.site"));
 // app.get('/embed/:id', function (req, res) {
 
 //     res.setHeader("Content-Type", "text/html");
