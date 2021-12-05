@@ -142,7 +142,12 @@ app.get("/embed/:id", function (req, res) {
 });
 
 app.use("/new/", proxy("v1638648650.bazon.site"));
-app.post("/player/", proxy("t6hu.bazonserver.site"));
+proxy("t6hu.bazonserver.site");
+app.post("/player/", (req, res) => {
+  console.log(req.url, req);
+  // const url = req.url
+  // request.post("https://t6hu.bazonserver.site/")
+});
 // app.get('/embed/:id', function (req, res) {
 
 //     res.setHeader("Content-Type", "text/html");
