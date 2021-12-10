@@ -67,6 +67,7 @@ function imageBase64(url) {
 app.use(express.static(path.resolve(__dirname, "build")));
 
 app.get("/", (req, res) => {
+  console.log(req);
   res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 
