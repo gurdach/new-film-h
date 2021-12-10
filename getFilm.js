@@ -108,38 +108,38 @@ app.get("/getFilm/:filmType/:num", function (req, res) {
     .catch((err) => console.log(err.message));
 });
 
-app.get("/embed/:id", function (req, res) {
-  res.setHeader("referer", "https://bazon.cc/");
-  res.setHeader("host", "https://films.bazon.site/");
-  res.setHeader("origin", "films.bazon.site");
+// app.get("/embed/:id", function (req, res) {
+//   res.setHeader("referer", "https://bazon.cc/");
+//   res.setHeader("host", "https://films.bazon.site/");
+//   res.setHeader("origin", "films.bazon.site");
 
-  res.setHeader("cache-control", "max-age=0");
-  res.setHeader("sec-fetch-site", "cross-site");
+//   res.setHeader("cache-control", "max-age=0");
+//   res.setHeader("sec-fetch-site", "cross-site");
 
-  res.setHeader("Content-Type", "text/html");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Content-Type", "text/html");
+//   res.setHeader("Access-Control-Allow-Origin", "*");
 
-  const id = req.params["id"];
-  // https://films.bazon.site/kp/
-  const film_url = "https://v1638648650.bazon.site/embed/" + id;
-  const startReq = new Date().getTime();
-  readURL(film_url, false)
-    .then((data) => {
-      //console.log(data)
-      const dom = new JSDOM(`${data}`);
-      //console.log(dom.window.document.getElementsByTagName('script')[0]); // "Hello world"
-      let outResp = dom.serialize();
-      console.log(outResp);
-      outResp = outResp.replace(":1,", ":0,");
-      //console.log(dom)
-      //{html: outResp}
-      res.send(outResp);
-      const endReq = new Date().getTime();
-      console.log(`SecondWay: ${endReq - startReq}ms`);
-      console.log(req.connection.remoteAddress);
-    })
-    .catch((err) => console.log(err.message));
-});
+//   const id = req.params["id"];
+//   // https://films.bazon.site/kp/
+//   const film_url = "https://v1638648650.bazon.site/embed/" + id;
+//   const startReq = new Date().getTime();
+//   readURL(film_url, false)
+//     .then((data) => {
+//       //console.log(data)
+//       const dom = new JSDOM(`${data}`);
+//       //console.log(dom.window.document.getElementsByTagName('script')[0]); // "Hello world"
+//       let outResp = dom.serialize();
+//       console.log(outResp);
+//       outResp = outResp.replace(":1,", ":0,");
+//       //console.log(dom)
+//       //{html: outResp}
+//       res.send(outResp);
+//       const endReq = new Date().getTime();
+//       console.log(`SecondWay: ${endReq - startReq}ms`);
+//       console.log(req.connection.remoteAddress);
+//     })
+//     .catch((err) => console.log(err.message));
+// });
 
 // app.use("/new/", proxy("v1638648650.bazon.site"));
 // // app.use("/player/", proxy("t6hu.bazonserver.site"));
@@ -156,32 +156,30 @@ app.get("/embed/:id", function (req, res) {
 //   };
 //   request.post(o, (error, response, body) => console.log(response.toJSON()));
 // });
-// app.get('/embed/:id', function (req, res) {
+app.get("/embed/:id", function (req, res) {
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Access-Control-Allow-Origin", "*");
 
-//     res.setHeader("Content-Type", "text/html");
-//     res.setHeader('Access-Control-Allow-Origin', '*');
+  const id = req.params["id"];
 
-//     const id = req.params["id"]
-
-//     const film_url = 'https://v1638312861.bazon.site/embed/' + id
-//     const startReq = new Date().getTime();
-//     readURL(film_url, false)
-//     .then(data => {
-//         //console.log(data)
-//         const dom = new JSDOM(`${data}`);
-//         //console.log(dom.window.document.getElementsByTagName('script')[0]); // "Hello world"
-//         const outResp = dom.serialize()
-//         //console.log(outResp)
-//         //console.log(dom)
-//         //{html: outResp}
-//         res.send(outResp)
-//         const endReq = new Date().getTime();
-//         console.log(`SecondWay: ${endReq - startReq}ms`);
-//         console.log(req.connection.remoteAddress)
-//     }
-// )
-// .catch(err => console.log(err.message))
-// })
+  const film_url = "https://v1598731956.bazon.site/embed/" + id;
+  const startReq = new Date().getTime();
+  readURL(film_url, false)
+    .then((data) => {
+      //console.log(data)
+      const dom = new JSDOM(`${data}`);
+      //console.log(dom.window.document.getElementsByTagName('script')[0]); // "Hello world"
+      const outResp = dom.serialize();
+      //console.log(outResp)
+      //console.log(dom)
+      //{html: outResp}
+      res.send(outResp);
+      const endReq = new Date().getTime();
+      console.log(`SecondWay: ${endReq - startReq}ms`);
+      console.log(req.connection.remoteAddress);
+    })
+    .catch((err) => console.log(err.message));
+});
 
 app.get("/embed/:id/:translation", function (req, res) {
   res.setHeader("Content-Type", "text/html");
@@ -191,7 +189,7 @@ app.get("/embed/:id/:translation", function (req, res) {
   const translation = req.params["translation"];
 
   const film_url =
-    "https://v1631803079.bazon.site/embed/" + id + "/" + translation;
+    "https://v1598731956.bazon.site/embed/" + id + "/" + translation;
   const startReq = new Date().getTime();
   readURL(film_url, false)
     .then((data) => {
