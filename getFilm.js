@@ -163,6 +163,8 @@ app.get("/embed/:id", function (req, res) {
   res.setHeader("Host", "v1598731956.bazon.site");
   res.setHeader("Referer", "https://v1598731956.bazon.site/");
   res.setHeader("Accept-Encoding", "gzip, deflate, br");
+  req.headers["referer"] = "http://localhost:3001/";
+  req.headers["host"] = "localhost:3001";
   req.headers["Referer"] = "http://localhost:3001/";
   req.headers["Host"] = "localhost:3001";
 
