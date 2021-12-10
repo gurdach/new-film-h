@@ -8,7 +8,7 @@ var app = express();
 // var proxy = require("express-http-proxy");
 
 const HOSTNAME = "localhost";
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 function readURL(url, base = false) {
   if (base) {
