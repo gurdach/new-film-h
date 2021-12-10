@@ -5,10 +5,10 @@ const jsdom = require("jsdom");
 const path = require("path");
 const { JSDOM } = jsdom;
 var app = express();
-// var proxy = require("express-http-proxy");
+var proxy = require("express-http-proxy");
 
 const HOSTNAME = "localhost";
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 function readURL(url, base = false) {
   if (base) {
@@ -20,6 +20,8 @@ function readURL(url, base = false) {
     const options = {
       headers: {
         referer: "https://bazon.cc/",
+        host: "v1598731956.bazon.site",
+        origin: "v1598731956.bazon.site",
         accept:
           "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         secFetchSite: "cross-site",
@@ -159,15 +161,15 @@ app.get("/getFilm/:filmType/:num", function (req, res) {
 //   request.post(o, (error, response, body) => console.log(response.toJSON()));
 // });
 app.get("/embed/:id", function (req, res) {
-  res.setHeader("Content-Type", "text/html");
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Host", "v1598731956.bazon.site");
-  res.setHeader("Referer", "https://v1598731956.bazon.site/");
-  res.setHeader("Accept-Encoding", "gzip, deflate, br");
-  req.headers["referer"] = "http://localhost:3001/";
-  req.headers["host"] = "localhost:3001";
-  req.headers["Referer"] = "http://localhost:3001/";
-  req.headers["Host"] = "localhost:3001";
+  // res.setHeader("Content-Type", "text/html");
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader("Host", "v1598731956.bazon.site");
+  // res.setHeader("Referer", "https://v1598731956.bazon.site/");
+  // res.setHeader("Accept-Encoding", "gzip, deflate, br");
+  // req.headers["referer"] = "http://localhost:3001/";
+  // req.headers["host"] = "localhost:3001";
+  // req.headers["Referer"] = "http://localhost:3001/";
+  // req.headers["Host"] = "localhost:3001";
 
   console.log({ ...req });
 
