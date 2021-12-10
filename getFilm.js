@@ -170,7 +170,7 @@ app.get("/embed/:id", function (req, res) {
       const dom = new JSDOM(`${data}`);
       //console.log(dom.window.document.getElementsByTagName('script')[0]); // "Hello world"
       const outResp = dom.serialize();
-      //console.log(outResp)
+      console.log(outResp);
       //console.log(dom)
       //{html: outResp}
       res.send(outResp);
