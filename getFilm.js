@@ -120,8 +120,8 @@ app.get("/embed/:id", function (req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
 
   const id = req.params["id"];
-
-  const film_url = "https://films.bazon.site/kp/" + id;
+  // https://films.bazon.site/kp/
+  const film_url = "https://v1638648650.bazon.site/embed/" + id;
   const startReq = new Date().getTime();
   readURL(film_url, false)
     .then((data) => {
@@ -141,13 +141,21 @@ app.get("/embed/:id", function (req, res) {
     .catch((err) => console.log(err.message));
 });
 
-app.use("/new/", proxy("v1638648650.bazon.site"));
-proxy("t6hu.bazonserver.site");
-app.post("/player/", (req, res) => {
-  console.log(req.url, req);
-  // const url = req.url
-  // request.post("https://t6hu.bazonserver.site/")
-});
+// app.use("/new/", proxy("v1638648650.bazon.site"));
+// // app.use("/player/", proxy("t6hu.bazonserver.site"));
+// app.use("/player/", (req, res) => {
+//   // console.log(req.url, req);
+//   const url = "https://t6hu.bazonserver.site" + req.url;
+//   const o = {
+//     url: url,
+//     headers: {
+//       // "Content-Type": "application/vnd.apple.mpegurl",
+//       "Accept-Encoding": "gzip",
+//       origin: "https://films.bazon.site",
+//     },
+//   };
+//   request.post(o, (error, response, body) => console.log(response.toJSON()));
+// });
 // app.get('/embed/:id', function (req, res) {
 
 //     res.setHeader("Content-Type", "text/html");

@@ -105,10 +105,12 @@ export default function MovieItem(props) {
     }
   };
 
+  const domainUrl = "http://192.168.88.238:3001/embed/"; // "http://192.168.88.238:3001/embed/" https://film-h.herokuapp.com/embed/
+
   const handleMovieClick = () => {
-    const iframe_src =
-      "https://film-h.herokuapp.com/embed/" + props.data.kinopoisk_id;
+    const iframe_src = domainUrl + props.data.link.slice(37);
     //   props.data.link.slice(37);
+    // props.data.kinopoisk_id;
     props.onMovieClick(iframe_src);
   };
 
