@@ -5,8 +5,9 @@ const jsdom = require("jsdom");
 const path = require("path");
 const { JSDOM } = jsdom;
 var app = express();
-var proxy = require("express-http-proxy");
+// var proxy = require("express-http-proxy");
 
+const HOSTNAME = "localhost";
 const PORT = process.env.PORT || 3001;
 
 function readURL(url, base = false) {
@@ -263,4 +264,4 @@ app.get("/photo?", function (req, res) {
     .catch((err) => console.log(err.message));
 });
 
-app.listen(PORT);
+app.listen(PORT, HOSTNAME);
