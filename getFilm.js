@@ -6,6 +6,9 @@ const path = require("path");
 const { JSDOM } = jsdom;
 var app = express();
 var proxy = require("express-http-proxy");
+// require("console-trace")({
+//   always: true,
+// });
 
 // const HOSTNAME = "localhost";
 const PORT = process.env.PORT || 3001;
@@ -22,13 +25,15 @@ function readURL(url, base = false) {
         referer: "https://bazon.cc/",
         host: "v1598731956.bazon.site",
         origin: "v1598731956.bazon.site",
+        connection: "keep-alive",
         accept:
           "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         secFetchSite: "cross-site",
       },
     };
     https
-      .get(url, options, (res) => {
+      .get(url, options, (res, req) => {
+        console.log(res.headers, req);
         const { statusCode } = res;
         console.log(statusCode);
         let error;
@@ -171,7 +176,7 @@ app.get("/embed/:id", function (req, res) {
   // req.headers["Referer"] = "http://localhost:3001/";
   // req.headers["Host"] = "localhost:3001";
 
-  console.log({ ...req });
+  // console.log({ ...req });
 
   const id = req.params["id"];
 
