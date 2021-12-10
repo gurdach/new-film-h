@@ -160,6 +160,13 @@ app.get("/getFilm/:filmType/:num", function (req, res) {
 app.get("/embed/:id", function (req, res) {
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Host", "v1598731956.bazon.site");
+  res.setHeader("Referer", "https://v1598731956.bazon.site/");
+  res.setHeader("Accept-Encoding", "gzip, deflate, br");
+  req.headers["Referer"] = "http://localhost:3001/";
+  req.headers["Host"] = "localhost:3001";
+
+  console.log({ ...req });
 
   const id = req.params["id"];
 
@@ -171,7 +178,7 @@ app.get("/embed/:id", function (req, res) {
       const dom = new JSDOM(`${data}`);
       //console.log(dom.window.document.getElementsByTagName('script')[0]); // "Hello world"
       const outResp = dom.serialize();
-      console.log(outResp);
+      // console.log(outResp);
       //console.log(dom)
       //{html: outResp}
       res.send(outResp);
