@@ -13,37 +13,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Player(props) {
-  const [html, setHtml] = useState("");
+  //   const [html, setHtml] = useState("");
   const classes = useStyles();
   //   const html = film();
   //   console.log(html);
 
-  useEffect(() => {
-    const film = async () => {
-      if (props.iframeSrc === "") {
-        return 0;
-      }
-      const response = await fetch(`${props.iframeSrc}`)
-        .then((response) => response.text())
-        .then((responseJSON) => {
-          return responseJSON;
-          // do stuff with responseJSON here...
-        })
-        .catch((error) => error);
-      //   console.log(response);
-      var dom = document.createElement("div");
-      dom.innerHTML = response;
-      console.log(dom.children);
-      dom.children[6].src = "testplayer.js";
-      console.log(dom.children[6]);
-      setHtml(dom.outerHTML);
-    };
-    if (props.iframeSrc === "") {
-      setHtml("");
-    } else {
-      film();
-    }
-  }, [props.iframeSrc]);
+  //   useEffect(() => {
+  //     const film = async () => {
+  //       if (props.iframeSrc === "") {
+  //         return 0;
+  //       }
+  //       const response = await fetch(`${props.iframeSrc}`)
+  //         .then((response) => response.text())
+  //         .then((responseJSON) => {
+  //           return responseJSON;
+  //           // do stuff with responseJSON here...
+  //         })
+  //         .catch((error) => error);
+  //       //   console.log(response);
+  //       var dom = document.createElement("div");
+  //       dom.innerHTML = response;
+  //       console.log(dom.children);
+  //       dom.children[6].src = "testplayer.js";
+  //       console.log(dom.children[6]);
+  //       setHtml(dom.outerHTML);
+  //     };
+  //     if (props.iframeSrc === "") {
+  //       setHtml("");
+  //     } else {
+  //       film();
+  //     }
+  //   }, [props.iframeSrc]);
 
   //   film();
   //   film();
@@ -55,8 +55,8 @@ export default function Player(props) {
         id="playerjs"
         className={classes.root}
         title="qq"
-        srcdoc={html || ""}
-        //   src={props.iframeSrc}
+        // srcdoc={html || ""}
+        src={props.iframeSrc}
         allowFullScreen="true "
         frameBorder="0"></iframe>
       {/* {film()} */}
