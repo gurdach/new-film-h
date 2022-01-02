@@ -105,7 +105,7 @@ export default function MovieItem(props) {
     }
   };
 
-  const domainUrl = "https://film-h.herokuapp.com/embed/"; // "http://192.168.88.238:3001/embed/" https://film-h.herokuapp.com/embed/
+  const domainUrl = "https://yo.bazon.site/embed/"; // "http://192.168.88.238:3001/embed/" https://film-h.herokuapp.com/embed/
 
   const handleMovieClick = () => {
     const iframe_src = domainUrl + props.data.link.slice(37);
