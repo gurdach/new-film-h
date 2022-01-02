@@ -413,9 +413,8 @@ function Playerjs(options) {
     return a;
   }
   function dec(e, t) {
-    console.log(e, t);
     const o = _0x39f8;
-    console.log(o(168), o(164), atob(e));
+    console.log(e, t);
     let i = o(164),
       s = rc4(atob(e), "z" + t + i),
       n = s[o(170)]("")[o(167)](function (e) {
@@ -424,21 +423,35 @@ function Playerjs(options) {
       }),
       a = new Zlib[o(179)](n),
       r = a[o(172)]();
-    let listFiles = new TextDecoder(o(168))[o(176)](r);
-    console.log(listFiles);
-    let replaceDomain = listFiles.split(",");
-    let resultList = replaceDomain.map((url) => {
-      let domain = url.split("//");
-      let quality = domain[0];
-      let spliter = domain[1].split("/");
-      // spliter[0] = "192.168.88.244:3001/player";
-      domain[1] = spliter.join("/");
-      const result = domain.join("https://");
-      console.log(result);
-      return result;
-    });
-    console.log(resultList);
-    return resultList.join(", ");
+    console.log(new TextDecoder(o(168))[o(176)](r));
+    return new TextDecoder(o(168))[o(176)](r);
+
+    // console.log(e, t);
+    // const o = _0x39f8;
+    // console.log(o(168), o(164), atob(e));
+    // let i = o(164),
+    //   s = rc4(atob(e), "z" + t + i),
+    //   n = s[o(170)]("")[o(167)](function (e) {
+    //     const t = o;
+    //     return e[t(173)](0);
+    //   }),
+    //   a = new Zlib[o(179)](n),
+    //   r = a[o(172)]();
+    // let listFiles = new TextDecoder(o(168))[o(176)](r);
+    // console.log(listFiles);
+    // let replaceDomain = listFiles.split(",");
+    // let resultList = replaceDomain.map((url) => {
+    //   let domain = url.split("//");
+    //   let quality = domain[0];
+    //   let spliter = domain[1].split("/");
+    //   // spliter[0] = "192.168.88.244:3001/player";
+    //   domain[1] = spliter.join("/");
+    //   const result = domain.join("https://");
+    //   console.log(result);
+    //   return result;
+    // });
+    // console.log(resultList);
+    // return resultList.join(", ");
   }
   function _0x39f8(n, e) {
     var a = _0x1d5a();
