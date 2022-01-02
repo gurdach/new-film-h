@@ -433,7 +433,7 @@ function Playerjs(options) {
       let spliter = domain[1].split("/");
       // spliter[0] = "192.168.88.244:3001/player";
       domain[1] = spliter.join("/");
-      const result = domain.join("http://");
+      const result = domain.join("//");
       console.log(result);
       return result;
     });
