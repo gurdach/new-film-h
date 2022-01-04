@@ -180,7 +180,7 @@ app.get("/embed/:id", function (req, res) {
 
   const id = req.params["id"];
 
-  const film_url = "https://v1598731956.bazon.site/embed/" + id;
+  const film_url = "https://yo.bazon.site/embed/" + id;
   const startReq = new Date().getTime();
   readURL(film_url, false)
     .then((data) => {
